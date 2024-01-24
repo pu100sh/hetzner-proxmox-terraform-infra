@@ -1,0 +1,5 @@
+.terraform/
+.idea
+rke_debug.log
+*.yml
+*.log
