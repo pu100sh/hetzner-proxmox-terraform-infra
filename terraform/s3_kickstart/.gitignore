@@ -1,0 +1,6 @@
+*/*.retry
+*/.terraform/*
+*/*/.terraform/*
+.idea
+.terraform
+*tfstate*

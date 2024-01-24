@@ -1,0 +1,11 @@
+source ./conf.d/env.conf
+export TF_RUN_AS=shell
+alias terraform="terraform_${TF_VERSION//./_}"
+alias activate="pushd $(pwd) >/dev/null 2>&1 && source $(pwd)/bin/activate && popd >/dev/null 2>&1 && export TF_RUN_AS=shell"
+alias deactivate="unalias terraform && unalias deactivate && source ~/.bash_profile_ps1 && unset TF_RUN_AS"
+
+if ! echo ${PS1} | grep -q terraform; then
+    echo "PS1=\"${PS1}\"" > ~/.bash_profile_ps1
+    PS1="(terraform_${TF_VERSION//./_})${PS1}"
+fi
+
